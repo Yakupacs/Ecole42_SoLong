@@ -32,7 +32,7 @@ int    main(int ac, char **av)
     data = calloc(sizeof(t_data), 1);
     data->img = (void **)malloc(sizeof(void *) * 1);
     data->mlx = mlx_init();
-    data->img[0] = mlx_xpm_file_to_image(data->mlx, PL_FT,
+    data->player_f = mlx_xpm_file_to_image(data->mlx, PL_FT,
             &data->imgx, &data->imgy);
     data->window = mlx_new_window(data->mlx, 300, 300, "so_long");
     mlx_put_image_to_window(data->mlx, data->window, data->img[0],

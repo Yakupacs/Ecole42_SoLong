@@ -15,27 +15,42 @@ typedef struct s_data
 {
     void    *mlx;
     void    *window;
-    void    **img;
+	void	*player_f;
+	void	*player_b;
+	void	*player_r;
+	void	*player_l;
+	void	*exit;
+	void	*wall;
+	void	*food;
+	void	*background;
     int     imgx;
     int     imgy;
-    int        position_x;
-    int        position_y;
-	int		p_x;
-	int		p_y;
+	int		position_x;
+	int		position_y;
+	int		ply_x;
+	int		ply_y;
 	int		map_x;
 	int		map_y;
 	char	*map1;
 	char	**map2;
-	int		food;
-	int		exit;
-	int		player;
+	char	**tmp_map2;
+	int		food_count;
+	int		tmp_food_count;
+	int		exit_count;
+	int		player_count;
+	int		valid_e;
 }    t_data;
 
 void	ft_ber_check(char *map_name, t_data *data);
 void	ft_error(char *msg, t_data *data);
 int		ft_key_event(int keycode, t_data *data);
-void	ft_make_map(t_data *data);
-void	ft_line_map(t_data *data,char *map);
-void	ft_check_map(t_data *data);
+void	ft_make_map(t_data *data,char *map);
+void	ft_map_check(t_data *data);
+void	ft_rectangular_check(t_data *data);
+void	ft_wall_check(t_data *data);
+void	ft_wall_leftright_check(t_data *data, int row_len);
+void	ft_validmap_check(t_data *data, int x, int y);
+void	ft_path_check(t_data *data);
+void	init_image(t_data *data);
 
 #endif

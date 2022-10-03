@@ -11,7 +11,7 @@ int    ft_key_event(int keycode, t_data *data)
     else if (keycode == 0){//A
         data->position_x -= 64;
         mlx_put_image_to_window(data->mlx, data->window, data->img[0],
-                data->position_x, data->position_y);
+                data->128, data);
     }
 	else if (keycode == 1){//S
 		data->position_y += 64;
