@@ -10,6 +10,15 @@
 # include "../mlx/mlx.h"
 
 # define PL_FT "./images/player_front.xpm"
+# define PL_BK "./images/player_back.xpm"
+# define PL_LT "./images/player_left.xpm"
+# define PL_RT "./images/player_right.xpm"
+# define FOOD "./images/food.xpm"
+# define EXIT "./images/door.xpm"
+# define BACKG "./images/background.xpm"
+# define WALL "./images/wall.xpm"
+
+
 
 typedef struct s_data
 {
@@ -39,6 +48,7 @@ typedef struct s_data
 	int		exit_count;
 	int		player_count;
 	int		valid_e;
+	char	curr_pos;
 }    t_data;
 
 void	ft_ber_check(char *map_name, t_data *data);
@@ -51,6 +61,8 @@ void	ft_wall_check(t_data *data);
 void	ft_wall_leftright_check(t_data *data, int row_len);
 void	ft_validmap_check(t_data *data, int x, int y);
 void	ft_path_check(t_data *data);
-void	init_image(t_data *data);
+void	ft_init_image(t_data *data);
+void	ft_put_image(t_data *data);
+void	ft_put_image_player(t_data *data, int x, int y);
 
 #endif

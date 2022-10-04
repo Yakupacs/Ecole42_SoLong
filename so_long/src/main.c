@@ -6,7 +6,7 @@
 /*   By: yacis@student.42istanbul.com.tr <yacis>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:37:46 by yacis@stude       #+#    #+#             */
-/*   Updated: 2022/10/03 20:28:58 by yacis@stude      ###   ########.fr       */
+/*   Updated: 2022/10/04 18:19:03 by yacis@stude      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,6 @@ void	ft_error(char *msg, t_data *data)
 	exit(EXIT_FAILURE);
 }
 
-void	init_image(t_data *data)
-{
-	data->player_f = mlx_xpm_file_to_image(data->mlx, PL_FT, 
-	&data->imgx, &data->imgy);
-}
-
 int	main(int ac, char **av)
 {
 	t_data    *data;
@@ -52,7 +46,7 @@ int	main(int ac, char **av)
 		ft_validmap_check(data, data->ply_x, data->ply_y);
 		ft_path_check(data);
 		data->mlx = mlx_init();
-		init_image(data);
+		ft_init_image(data);
 	}
 	else
 		ft_error("You just have to enter the map path!", data);
