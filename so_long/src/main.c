@@ -6,7 +6,7 @@
 /*   By: yacis@student.42istanbul.com.tr <yacis>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:37:46 by yacis@stude       #+#    #+#             */
-/*   Updated: 2022/10/04 18:19:03 by yacis@stude      ###   ########.fr       */
+/*   Updated: 2022/10/06 20:30:18 by yacis@stude      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,49 @@ game_end fonksiyonun olsun tek çıkışlı.
 void	ft_error(char *msg, t_data *data)
 {
 	ft_printf(msg);
-	//free_all()
+	ft_free_all(data);
 	exit(EXIT_FAILURE);
+}
+
+int	ft_close_window(t_data *data)
+{
+	ft_free_all(data);
+	exit(EXIT_SUCCESS);
+	return (0);
+}
+
+void	ft_free_all(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	if (data->map1)
+		free(data->map1);
+	if (data->map2)
+	{
+		while(data->map2[i])
+		{
+			free(data->map2[i]);
+			i++;
+		}
+		free(data->map2);
+	}
+	if (data->mlx)
+		ft_free_mlx(data);
+}
+
+void	ft_free_mlx(t_data *data)
+{
+	mlx_destroy_image(data->mlx, data->background);
+	mlx_destroy_image(data->mlx, data->food);
+	mlx_destroy_image(data->mlx, data->wall);
+	mlx_destroy_image(data->mlx, data->exit);
+	mlx_destroy_image(data->mlx, data->player_l);
+	mlx_destroy_image(data->mlx, data->player_r);
+	mlx_destroy_image(data->mlx, data->player_b);
+	mlx_destroy_image(data->mlx, data->player_f);
+	mlx_destroy_window(data->mlx, data->window);
+	free(data->mlx);
 }
 
 int	main(int ac, char **av)
@@ -47,6 +88,9 @@ int	main(int ac, char **av)
 		ft_path_check(data);
 		data->mlx = mlx_init();
 		ft_init_image(data);
+		mlx_hook(data->window, 2, 1L << 0, ft_key_event, data);
+		mlx_hook(data->window, 17, 1L << 2, ft_close_window, data);
+		mlx_loop(data->mlx);
 	}
 	else
 		ft_error("You just have to enter the map path!", data);

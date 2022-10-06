@@ -1,27 +1,75 @@
 #include "so_long.h"
 
-int    ft_key_event(int keycode, t_data *data)
+int	ft_key_event(int key, t_data *data)
 {
-    mlx_clear_window(data->mlx, data->window);
-    if (keycode == 2){//D
-        data->position_x += 64;
-        mlx_put_image_to_window(data->mlx, data->window, data->img[0],
-                data->position_x, data->position_y);
-    }
-    else if (keycode == 0){//A
-        data->position_x -= 64;
-        mlx_put_image_to_window(data->mlx, data->window, data->img[0],
-                data->128, data);
-    }
-	else if (keycode == 1){//S
-		data->position_y += 64;
-		mlx_put_image_to_window(data->mlx, data->window, data->img[0],
-				data->position_x, data->position_y); 
+	if (key == 53)
+	{
+		ft_free_all(data);
+		exit(EXIT_SUCCESS);
 	}
-	else if (keycode == 13){//W
-		data->position_y -= 64;
-		mlx_put_image_to_window(data->mlx, data->window, data->img[0],
-				data->position_x, data->position_y); 
+	ft_check_up(key, data);
+	ft_check_down(key, data);
+	ft_check_left(key, data);
+	ft_check_right(key, data);
+	return (0);
+}
+
+void ft_check_up(int key, t_data *data)
+{
+	if (key == 13)
+	{
+		if (ft_check_movement(data, data->ply_x, data->ply_y - 1))
+				{
+					data->map2[data->ply_y][data->ply_x] = '0';
+					data->ply_y -= 1;
+					data->map2[data->ply_y][data->ply_x] = 'P';
+					data->curr_pos = 'B';
+					ft_render_after_move(data);
+				}
 	}
-    return (0);
+}
+
+void ft_check_down(int key, t_data *data)
+{
+	if (key == 1)
+	{
+		if (ft_check_movement(data, data->ply_x, data->ply_y + 1))
+				{
+					data->map2[data->ply_y][data->ply_x] = '0';
+					data->ply_y += 1;
+					data->map2[data->ply_y][data->ply_x] = 'P';
+					data->curr_pos = 'F';
+					ft_render_after_move(data);
+				}
+	}
+}
+
+void ft_check_left(int key, t_data *data)
+{
+	if (key == 0)
+	{
+		if (ft_check_movement(data, data->ply_x - 1, data->ply_y))
+				{
+					data->map2[data->ply_y][data->ply_x] = '0';
+					data->ply_x -= 1;
+					data->map2[data->ply_y][data->ply_x] = 'P';
+					data->curr_pos = 'L';
+					ft_render_after_move(data);
+				}
+	}
+}
+
+void ft_check_right(int key, t_data *data)
+{
+	if (key == 2)
+	{
+		if (ft_check_movement(data, data->ply_x + 1, data->ply_y))
+				{
+					data->map2[data->ply_y][data->ply_x] = '0';
+					data->ply_x += 1;
+					data->map2[data->ply_y][data->ply_x] = 'P';
+					data->curr_pos = 'R';
+					ft_render_after_move(data);
+				}
+	}
 }

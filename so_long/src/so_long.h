@@ -18,8 +18,6 @@
 # define BACKG "./images/background.xpm"
 # define WALL "./images/wall.xpm"
 
-
-
 typedef struct s_data
 {
     void    *mlx;
@@ -48,6 +46,7 @@ typedef struct s_data
 	int		exit_count;
 	int		player_count;
 	int		valid_e;
+	int		move_count;
 	char	curr_pos;
 }    t_data;
 
@@ -64,5 +63,16 @@ void	ft_path_check(t_data *data);
 void	ft_init_image(t_data *data);
 void	ft_put_image(t_data *data);
 void	ft_put_image_player(t_data *data, int x, int y);
+void	ft_init_xy(int *x, int *y);
+void	ft_xy_operation(int *x, int *y, t_data *data);
+void	ft_render_after_move(t_data *data);
+void	ft_check_up(int key, t_data *data);
+void	ft_check_down(int key, t_data *data);
+void	ft_check_right(int key, t_data *data);
+void	ft_check_left(int key, t_data *data);
+int		ft_check_movement(t_data *data, int x, int y);
+int		ft_close_window(t_data *data);
+void	ft_free_all(t_data *data);
+void	ft_free_mlx(t_data *data);
 
 #endif

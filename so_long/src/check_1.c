@@ -6,7 +6,7 @@
 /*   By: yacis@student.42istanbul.com.tr <yacis>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:39:37 by yacis@stude       #+#    #+#             */
-/*   Updated: 2022/10/03 20:20:20 by yacis@stude      ###   ########.fr       */
+/*   Updated: 2022/10/06 18:11:46 by yacis@stude      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	ft_rectangular_check(t_data *data)
 
 	i = 0;
 	line_len1 = ft_strlen(data->map2[0]);
+	data->map_x = line_len1;
 	while (data->map2[i]){
 		line_len2 = ft_strlen(data->map2[i]);
 		if (line_len2 != line_len1)
@@ -79,6 +80,7 @@ void	ft_wall_check(t_data *data)
 		len++;
 		i++;
 	}
+	data->map_y = len;
 	i = 0;
 	while (data->map2[0][i] && data->map2[len - 1][i]){
 		if (data->map2[0][i] != '1' || data->map2[len - 1][i] != '1')
