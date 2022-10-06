@@ -6,7 +6,7 @@
 /*   By: yacis@student.42istanbul.com.tr <yacis>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:37:46 by yacis@stude       #+#    #+#             */
-/*   Updated: 2022/10/06 20:30:18 by yacis@stude      ###   ########.fr       */
+/*   Updated: 2022/10/06 20:52:54 by yacis@stude      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ void	ft_free_all(t_data *data)
 		}
 		free(data->map2);
 	}
-	if (data->mlx)
-		ft_free_mlx(data);
 }
 
 void	ft_free_mlx(t_data *data)
