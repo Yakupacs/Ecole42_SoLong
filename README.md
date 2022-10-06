@@ -21,6 +21,12 @@
 
 <br>
 
+#### IMAGES
+
+------------
+
+<img width="1200" alt="Ekran Resmi 2022-10-06 ÖS 9 49 25" src="https://user-images.githubusercontent.com/73075252/194394691-7222e30f-e582-4d5b-a545-f45e9f1f1ebd.png">
+
 
  *☕️ Now you can buy me a coffee!*
  
