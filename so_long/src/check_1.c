@@ -6,7 +6,7 @@
 /*   By: yacis@student.42istanbul.com.tr <yacis>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:39:37 by yacis@stude       #+#    #+#             */
-/*   Updated: 2022/10/06 18:11:46 by yacis@stude      ###   ########.fr       */
+/*   Updated: 2022/10/07 19:30:25 by yacis@stude      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ void	ft_map_check(t_data *data)
 				data->ply_x = j;
 				data->ply_y = i;
 			}
+			else if (data->map2[i][j] != '0' && data->map2[i][j] != '1')
+				ft_error("Error! Map must include only 1 player, only 1 exit \
+and at least 1 collectibles.", data);
 			j++;
 		}
 		i++;
