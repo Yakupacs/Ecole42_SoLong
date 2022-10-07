@@ -3,7 +3,7 @@
 </h1>
 
 
-#### DESCRIPTION
+# Description
 ###### This project is a small 2D game with minilibx. You'll learn about textures, sprites and tiles.
 
 -----------
@@ -21,11 +21,9 @@
 
 <br>
 
-#### IMAGES
+# Video
 
-------------
-
-<img width="1200" alt="Ekran Resmi 2022-10-06 ÖS 9 49 25" src="https://user-images.githubusercontent.com/73075252/194394691-7222e30f-e582-4d5b-a545-f45e9f1f1ebd.png">
+<img width="600px" src="https://user-images.githubusercontent.com/73075252/194603861-c6c87fb6-3572-4445-ae6a-50dafccb7db5.gif">
 
 
  *☕️ Now you can buy me a coffee!*
