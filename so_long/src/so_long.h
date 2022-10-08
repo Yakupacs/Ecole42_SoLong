@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yacis@student.42istanbul.com.tr <yacis>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/07 19:42:27 by yacis@stude       #+#    #+#             */
+/*   Updated: 2022/10/08 16:34:04 by yacis@stude      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -20,8 +32,8 @@
 
 typedef struct s_data
 {
-    void    *mlx;
-    void    *window;
+	void	*mlx;
+	void	*window;
 	void	*player_f;
 	void	*player_b;
 	void	*player_r;
@@ -30,8 +42,8 @@ typedef struct s_data
 	void	*wall;
 	void	*food;
 	void	*background;
-    int     imgx;
-    int     imgy;
+	int		imgx;
+	int		imgy;
 	int		position_x;
 	int		position_y;
 	int		ply_x;
@@ -48,16 +60,17 @@ typedef struct s_data
 	int		valid_e;
 	int		move_count;
 	char	curr_pos;
-}    t_data;
+}	t_data;
 
 void	ft_ber_check(char *map_name, t_data *data);
 void	ft_error(char *msg, t_data *data);
 int		ft_key_event(int keycode, t_data *data);
-void	ft_make_map(t_data *data,char *map);
+void	ft_make_map(t_data *data, char *map);
 void	ft_map_check(t_data *data);
+void	ft_fe_count_check(t_data *data);
 void	ft_rectangular_check(t_data *data);
 void	ft_wall_check(t_data *data);
-void	ft_wall_leftright_check(t_data *data, int row_len);
+void	ft_wall_leftright_check(t_data *data);
 void	ft_validmap_check(t_data *data, int x, int y);
 void	ft_path_check(t_data *data);
 void	ft_init_image(t_data *data);

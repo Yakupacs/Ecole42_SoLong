@@ -6,7 +6,7 @@
 /*   By: yacis@student.42istanbul.com.tr <yacis>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:39:37 by yacis@stude       #+#    #+#             */
-/*   Updated: 2022/10/07 19:30:25 by yacis@stude      ###   ########.fr       */
+/*   Updated: 2022/10/08 16:45:03 by yacis@stude      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,22 @@ void	ft_ber_check(char *map_name, t_data *data)
 	int	len;
 
 	len = ft_strlen(map_name);
-	if (map_name[len - 1] != 'r' && map_name[len - 2] != 'e' &&
-			map_name[len - 3] != 'b' && map_name[len - 4] != '.' &&
-				len <= 9)
-					ft_error("Must be '.ber' extension!", data);
+	if (map_name[len - 1] != 'r' && map_name[len - 2] != 'e'
+		&& map_name[len - 3] != 'b' && map_name[len - 4] != '.'
+		&& len <= 9)
+		ft_error("Must be '.ber' extension!", data);
 }
 
 void	ft_map_check(t_data *data)
 {
-	int i;
-	int j;
+	static int	i = 0;
+	static int	j = 0;
 
-	i = 0;
-	while (data->map2[i]){
+	while (data->map2[i])
+	{
 		j = 0;
-		while (data->map2[i][j]){
+		while (data->map2[i][j])
+		{
 			if (data->map2[i][j] == 'C')
 				data->food_count++;
 			else if (data->map2[i][j] == 'E')
@@ -43,31 +44,28 @@ void	ft_map_check(t_data *data)
 				data->ply_y = i;
 			}
 			else if (data->map2[i][j] != '0' && data->map2[i][j] != '1')
-				ft_error("Error! Map must include only 1 player, only 1 exit \
-and at least 1 collectibles.", data);
+				ft_error("Error! Map must include 1P or 1C or 1E.", data);
 			j++;
 		}
 		i++;
 	}
-	if (data->food_count < 1 || data->exit_count != 1 ||
-			data->player_count != 1)
-			ft_error("Error! Map must include only 1 player, only 1 exit \
-and at least 1 collectibles.", data);
+	ft_fe_count_check(data);
 }
 
 void	ft_rectangular_check(t_data *data)
 {
-	int line_len1;
-	int line_len2;
+	int	line_len1;
+	int	line_len2;
 	int	i;
 
 	i = 0;
 	line_len1 = ft_strlen(data->map2[0]);
 	data->map_x = line_len1;
-	while (data->map2[i]){
+	while (data->map2[i])
+	{
 		line_len2 = ft_strlen(data->map2[i]);
 		if (line_len2 != line_len1)
-			ft_error("Error! The map is not rectangular.",data);
+			ft_error("Error! The map is not rectangular.", data);
 		i++;
 	}
 }
@@ -79,28 +77,30 @@ void	ft_wall_check(t_data *data)
 
 	i = 0;
 	len = 0;
-	while (data->map2[i]){
+	while (data->map2[i])
+	{
 		len++;
 		i++;
 	}
 	data->map_y = len;
 	i = 0;
-	while (data->map2[0][i] && data->map2[len - 1][i]){
+	while (data->map2[0][i] && data->map2[len - 1][i])
+	{
 		if (data->map2[0][i] != '1' || data->map2[len - 1][i] != '1')
 			ft_error("Error! The walls are not closed.", data);
 		i++;
 	}
-	ft_wall_leftright_check(data, len);
+	ft_wall_leftright_check(data);
 }
 
-void	ft_wall_leftright_check(t_data *data, int row_len)
+void	ft_wall_leftright_check(t_data *data)
 {
 	int	i;
 	int	len;
 
 	i = 0;
-	len = ft_strlen(data->map2[0]);
-	while (i < row_len)
+	len = 0;
+	while (i < len)
 	{
 		if (data->map2[i][0] != '1' || data->map2[i][len - 1] != '1')
 			ft_error("Error! The walls are not closed.", data);

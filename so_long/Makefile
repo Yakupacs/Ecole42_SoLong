@@ -6,11 +6,11 @@
 #    By: yacis@student.42istanbul.com.tr <yacis>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 19:33:34 by yacis@stude       #+#    #+#              #
-#    Updated: 2022/10/06 18:36:08 by yacis@stude      ###   ########.fr        #
+#    Updated: 2022/10/07 19:40:39 by yacis@stude      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = src/main.c src/check_1.c src/check_2.c src/map_1.c src/screen_1.c src/utils.c src/event_1.c
+SRCS = src/main.c src/check_1.c src/check_2.c src/screen_1.c src/utils.c src/event_1.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: yacis@student.42istanbul.com.tr <yacis>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 19:31:39 by yacis@stude       #+#    #+#             */
-/*   Updated: 2022/10/06 20:49:52 by yacis@stude      ###   ########.fr       */
+/*   Updated: 2022/10/07 19:47:38 by yacis@stude      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_path_check(t_data *data)
 	int	i;
 
 	i = 0;
-	while(data->tmp_map2[i])
+	while (data->tmp_map2[i])
 	{
 		free(data->tmp_map2[i]);
 		i++;

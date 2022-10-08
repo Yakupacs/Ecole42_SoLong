@@ -6,7 +6,7 @@
 /*   By: yacis@student.42istanbul.com.tr <yacis>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:39:58 by yacis@stude       #+#    #+#             */
-/*   Updated: 2022/10/06 20:52:43 by yacis@stude      ###   ########.fr       */
+/*   Updated: 2022/10/08 16:33:32 by yacis@stude      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,21 @@ int	ft_check_movement(t_data *data, int x, int y)
 			data->food_count--;
 		else if (!data->food_count && data->map2[y][x] == 'E')
 		{
-			ft_printf("Move: %d\nCongratulations!",++(data->move_count));
+			ft_printf("Move: %d\nCongratulations!", ++(data->move_count));
 			ft_free_all(data);
 			exit(EXIT_SUCCESS);
 		}
 		if (data->map2[y][x] == 'E')
 			return (0);
-		ft_printf("Move: %d\n",++(data->move_count));
+		ft_printf("Move: %d\n", ++(data->move_count));
 		return (1);
 	}
 	return (0);
+}
+
+void	ft_fe_count_check(t_data *data)
+{
+	if (data->food_count < 1 || data->exit_count != 1
+		|| data->player_count != 1)
+		ft_error("Error! Map must include 1P or 1C or 1E.", data);
 }
