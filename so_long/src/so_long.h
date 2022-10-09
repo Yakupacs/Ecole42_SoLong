@@ -6,7 +6,7 @@
 /*   By: yacis@student.42istanbul.com.tr <yacis>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:42:27 by yacis@stude       #+#    #+#             */
-/*   Updated: 2022/10/08 16:34:04 by yacis@stude      ###   ########.fr       */
+/*   Updated: 2022/10/09 19:17:41 by yacis@stude      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_data
 	int		valid_e;
 	int		move_count;
 	char	curr_pos;
+	char	*move_count_screen;
 }	t_data;
 
 void	ft_ber_check(char *map_name, t_data *data);
@@ -76,6 +77,7 @@ void	ft_path_check(t_data *data);
 void	ft_init_image(t_data *data);
 void	ft_put_image(t_data *data);
 void	ft_put_image_player(t_data *data, int x, int y);
+void	ft_score(t_data *data);
 void	ft_init_xy(int *x, int *y);
 void	ft_xy_operation(int *x, int *y, t_data *data);
 void	ft_render_after_move(t_data *data);

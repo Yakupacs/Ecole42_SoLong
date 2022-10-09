@@ -6,7 +6,7 @@
 /*   By: yacis@student.42istanbul.com.tr <yacis>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:37:46 by yacis@stude       #+#    #+#             */
-/*   Updated: 2022/10/08 17:05:04 by yacis@stude      ###   ########.fr       */
+/*   Updated: 2022/10/09 18:49:34 by yacis@stude      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,4 @@ int	main(int ac, char **av)
 		data = ft_calloc(sizeof(t_data), 1);
 		ft_error("You just have to enter the map path!", data);
 	}
-
 }

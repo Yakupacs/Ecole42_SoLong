@@ -6,7 +6,7 @@
 /*   By: yacis@student.42istanbul.com.tr <yacis>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:56:13 by yacis@stude       #+#    #+#             */
-/*   Updated: 2022/10/08 16:41:08 by yacis@stude      ###   ########.fr       */
+/*   Updated: 2022/10/09 19:43:43 by yacis@stude      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	ft_put_image(t_data *data)
 			ft_put_image_player(data, x, y);
 		ft_xy_operation(&x, &y, data);
 	}
+	ft_score(data);
 }
 
 void	ft_put_image_player(t_data *data, int x, int y)
@@ -96,4 +97,14 @@ void	ft_put_image_player(t_data *data, int x, int y)
 		mlx_put_image_to_window(data->mlx, data->window, data->player_l, x, y);
 	else if (data->curr_pos == 'B')
 		mlx_put_image_to_window(data->mlx, data->window, data->player_b, x, y);
+}
+
+void	ft_score(t_data *data)
+{
+	data->move_count_screen = ft_itoa(data->move_count);
+	mlx_string_put(data->mlx, data->window, 30, 30, 0xFFFFFF, \
+	"Move: ");
+	mlx_string_put(data->mlx, data->window, 65, 30, 0xFFFFFF, \
+		data->move_count_screen);
+	free(data->move_count_screen);
 }
