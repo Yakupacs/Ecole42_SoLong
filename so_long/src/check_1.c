@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yacis@student.42istanbul.com.tr <yacis>    +#+  +:+       +#+        */
+/*   By: yacis <yacis@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:39:37 by yacis@stude       #+#    #+#             */
-/*   Updated: 2022/10/08 16:45:03 by yacis@stude      ###   ########.fr       */
+/*   Updated: 2022/10/27 21:01:54 by yacis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	ft_ber_check(char *map_name, t_data *data)
 	int	len;
 
 	len = ft_strlen(map_name);
-	if (map_name[len - 1] != 'r' && map_name[len - 2] != 'e'
-		&& map_name[len - 3] != 'b' && map_name[len - 4] != '.'
-		&& len <= 9)
+	if (map_name[len - 1] != 'r' || map_name[len - 2] != 'e'
+		|| map_name[len - 3] != 'b' || map_name[len - 4] != '.'
+		|| len <= 9)
 		ft_error("Must be '.ber' extension!", data);
 }
 
@@ -99,8 +99,8 @@ void	ft_wall_leftright_check(t_data *data)
 	int	len;
 
 	i = 0;
-	len = 0;
-	while (i < len)
+	len = data->map_x;
+	while (i < data->map_y)
 	{
 		if (data->map2[i][0] != '1' || data->map2[i][len - 1] != '1')
 			ft_error("Error! The walls are not closed.", data);
