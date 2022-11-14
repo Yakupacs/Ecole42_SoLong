@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkeklik <bkeklik@student.42istanbul.com.t  +#+  +:+       +#+        */
+/*   By: yacis <yacis@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 16:02:56 by bkeklik           #+#    #+#             */
-/*   Updated: 2022/06/24 20:13:12 by bkeklik          ###   ########.fr       */
+/*   Created: 2022/11/14 15:27:32 by yacis             #+#    #+#             */
+/*   Updated: 2022/11/14 15:27:34 by yacis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
